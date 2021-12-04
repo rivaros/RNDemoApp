@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-  Text,
-} from 'react-native';
+import {StatusBar, StyleSheet, useColorScheme, View, Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParamList} from '../navigation/types';
 import {MAIN_SCREEN} from '../navigation/constants';
@@ -27,7 +21,11 @@ const Main: React.FC<Props> = () => {
 
   return (
     <SafeAreaView style={{...backgroundStyle, ...styles.mainContainer}}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar
+        translucent
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={Colors.white}
+      />
       <View
         style={{
           backgroundColor: isDarkMode ? Colors.black : Colors.white,
