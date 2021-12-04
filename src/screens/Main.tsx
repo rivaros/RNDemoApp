@@ -15,7 +15,7 @@ const Main: React.FC<Props> = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.black : Colors.white,
     flex: 1,
   };
 
@@ -24,7 +24,7 @@ const Main: React.FC<Props> = () => {
       <StatusBar
         translucent
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={Colors.white}
+        backgroundColor={isDarkMode ? Colors.black : Colors.white}
       />
       <View
         style={{
