@@ -12,13 +12,26 @@ import React, {useEffect} from 'react';
 
 import {MainNavigator} from './src/navigation/MainNavigator';
 import SplashScreen from 'react-native-splash-screen';
+import {QueryClientProvider, QueryClient} from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 1000 * 60, // 1 minute - Android threshold for timers
+    },
+  },
+});
 
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   });
 
-  return <MainNavigator />;
+  return (
+    <QueryClientProvider client={queryClient} contextSharing>
+      <MainNavigator />
+    </QueryClientProvider>
+  );
 };
 
 export default App;
