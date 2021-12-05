@@ -11,7 +11,7 @@ const AppStack = createStackNavigator();
 export const MainNavigator: React.FC = () => {
   return (
     <NavigationContainer>
-      <AppStack.Navigator initialRouteName={MAIN_SCREEN}>
+      <AppStack.Navigator initialRouteName={CAROUSEL_SCREEN}>
         <AppStack.Screen
           name={MAIN_SCREEN}
           component={MainScreen}
