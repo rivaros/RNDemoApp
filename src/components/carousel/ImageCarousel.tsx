@@ -22,6 +22,9 @@ interface ImageCarouselProps {
 const ImageCarousel: React.FC<ImageCarouselProps> = ({data}) => {
   return (
     <View style={styles.container}>
+      <View>
+        <Text>Back</Text>
+      </View>
       <FlatList
         data={data}
         renderItem={({item, index}) => {
@@ -43,6 +46,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({data}) => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={item => sha256(item.images[0]).toString()}
       />
+      <View>
+        <Text>Forward</Text>
+      </View>
     </View>
   );
 };

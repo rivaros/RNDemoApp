@@ -5,6 +5,8 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParamList} from '../navigation/types';
 import {CAROUSEL_SCREEN} from '../navigation/constants';
 import ImageCarousel from '../components/carousel/ImageCarousel';
+import IconEntypo from 'react-native-vector-icons/Entypo';
+import IconMaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Colors from '../styles/colors';
 
@@ -92,6 +94,9 @@ const Carousel: React.FC<Props> = () => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={isDarkMode ? Colors.black : Colors.white}
       />
+      <View>
+        <IconEntypo name="chevron-left" size={30} color="#900" />
+      </View>
       <ImageCarousel data={carouselData} />
       <Text>Carousel</Text>
     </SafeAreaView>
