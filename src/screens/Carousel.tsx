@@ -5,8 +5,6 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParamList} from '../navigation/types';
 import {CAROUSEL_SCREEN} from '../navigation/constants';
 import ImageCarousel from '../components/carousel/ImageCarousel';
-import IconEntypo from 'react-native-vector-icons/Entypo';
-import IconMaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import {getCarousel} from '../api/carouselApi';
 import {useQuery} from 'react-query';
 
@@ -45,14 +43,15 @@ const Carousel: React.FC<Props> = () => {
       );
     }
 
-    return (
-      <>
-        <View>
-          <IconEntypo name="chevron-left" size={30} color="#900" />
-        </View>
-        <ImageCarousel data={carouselData || []} />
-      </>
-    );
+    const randomizedData: CarouselItemRandomized[] = [];
+    carouselData?.forEach(item => {
+      randomizedData.push({
+        title: item.title,
+        imageUrl: item.images[Math.floor(Math.random() * item.images.length)],
+      });
+    });
+
+    return <ImageCarousel data={randomizedData} />;
   };
 
   return (

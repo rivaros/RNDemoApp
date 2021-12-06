@@ -1,6 +1,6 @@
 const carouselData: CarouselItem[] = [
   {
-    title: 'First block',
+    title: '1st block',
     images: [
       'https://media.istockphoto.com/photos/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-picture-id1093110112',
       'https://media.istockphoto.com/photos/sunset-with-pebbles-on-beach-in-nice-france-picture-id1157205177',
@@ -63,9 +63,46 @@ const carouselData: CarouselItem[] = [
       'https://media.istockphoto.com/photos/chimney-stacks-of-cecilienhof-palace-in-neuer-park-potsdam-germany-picture-id1279201016',
     ],
   },
+  {
+    title: '9th block',
+    images: [
+      'https://media.istockphoto.com/photos/modern-skyscrapers-in-business-district-picture-id1137991385',
+      'https://media.istockphoto.com/photos/business-district-building-street-office-building-picture-id1196323722',
+      'https://media.istockphoto.com/photos/3d-rendering-of-corporate-buildings-with-sunlight-picture-id1135793300',
+    ],
+  },
+  {
+    title: '10th block',
+    images: [
+      'https://media.istockphoto.com/photos/skyscrapers-in-a-finance-district-picture-id904105652',
+      'https://media.istockphoto.com/photos/europe-modern-complex-of-residential-buildings-picture-id1165384568',
+      'https://media.istockphoto.com/photos/workers-working-late-tall-building-reflected-picture-id1173173561',
+    ],
+  },
+  {
+    title: '11th block',
+    images: [
+      'https://media.istockphoto.com/photos/beautiful-craftsman-home-exterior-on-bright-sunny-day-with-green-and-picture-id1222625117',
+      'https://media.istockphoto.com/photos/modern-real-estate-picture-id488120139',
+      'https://media.istockphoto.com/photos/beautiful-exterior-of-new-luxury-home-at-twilight-picture-id524085051',
+    ],
+  },
+  {
+    title: '12th block',
+    images: [
+      'https://media.istockphoto.com/photos/looking-up-a-reflections-on-glass-covered-corporate-building-picture-id1218614876',
+      'https://media.istockphoto.com/photos/building-with-large-h-sign-for-hospital-picture-id855680246',
+      'https://media.istockphoto.com/vectors/wireframe-of-the-building-of-the-blue-lines-on-a-dark-background-3d-vector-id1145847839',
+    ],
+  },
 ];
 
 // mimic server call
 export const getCarousel = (): Promise<CarouselItem[]> => {
-  return new Promise(resolve => setTimeout(() => resolve(carouselData), 1000));
+  return new Promise(resolve =>
+    setTimeout(() => {
+      __DEV__ && console.log('Getting carousel data');
+      return resolve(carouselData);
+    }, 1000),
+  );
 };
